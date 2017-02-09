@@ -32,9 +32,8 @@ app.use('/', index);
 app.use('/api', todos);
 
 
-
-// server
-var port = 3000;
-app.listen(port, function() {
-    console.log('Server started on port ' + port);
+// Initialize the app.
+var server = app.listen(process.env.PORT || 8080, function () {
+  var port = server.address().port;
+  console.log("App now running on port", port);
 });
