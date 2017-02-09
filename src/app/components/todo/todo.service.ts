@@ -10,14 +10,14 @@ export class TodoService {
 
   constructor(private http: Http) { }
 
-  // private hostURL = 'https://murmuring-journey-74080.herokuapp.com/api/';
+  private hostURL = 'https://murmuring-journey-74080.herokuapp.com/api/';
 
    // GET /todos
   getTodos() {
     const headers = new Headers();
     let options = new RequestOptions({ headers: headers });
     headers.append('Accept', 'application/json');
-    return this.http.get(environment.url + 'todos', options)
+    return this.http.get(this.hostURL + 'todos', options)
       .map((response: Response) => response.json())
       .catch(this.handleError);
   }
@@ -28,7 +28,7 @@ export class TodoService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(environment.url + 'todo', body, options)
+    return this.http.post(this.hostURL + 'todo', body, options)
       .map((response: Response) => response.json())
       .catch(this.handleError);
   }
@@ -38,7 +38,7 @@ export class TodoService {
     const headers = new Headers();
     headers.append('Accept', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    return this.http.delete(environment.url+ 'todo/' + id, options)
+    return this.http.delete(this.hostURL + 'todo/' + id, options)
       .map((response: Response) => response.json())
       .catch(this.handleError);
   }
@@ -50,7 +50,7 @@ export class TodoService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    return this.http.put(environment.url + 'todo/' + data._id, body, options)
+    return this.http.put(this.hostURL + 'todo/' + data._id, body, options)
       .map((response: Response) => response.json())
       .catch(this.handleError);
   }
