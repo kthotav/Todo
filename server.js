@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var mongodb = require("mongodb");
 var cors = require('cors')
 
 var index = require('./routes/index');
@@ -25,7 +26,6 @@ app.use(express.static(__dirname + '/dist'));
 // body bodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
 
 // route 
 app.use('/', index);
