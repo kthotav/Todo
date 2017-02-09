@@ -45,18 +45,6 @@ export class TodoComponent implements OnInit {
       });
   }
 
-  submitTodo(todo) {
-    var newTodo = {
-      title: todo,
-      isDone: false
-    }
-    this.todoService.postTodo(newTodo).subscribe(
-      (data) => {
-        console.log(data);
-        this.todos.push(data);
-      });
-  }
-
   deleteTodo(todo) {
     this.todoService.deleteTodo(todo._id).subscribe(
       (data) => {
