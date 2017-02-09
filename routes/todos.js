@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 var mongojs = require("mongojs");
 
+
+var env = process.env.NODE_ENV || 'development';
+var config = require('../config')[env];
+
 // set database
-var db;
-if(process.env.NODE_ENV === 'development') {
-    db = mongojs('mongodb://admin:admin@ds145659.mlab.com:45659/todos', ['todos']);
-} else {
-    db = mongojs('mongodb://admin:admin@ds147069.mlab.com:47069/heroku_8p81d1zw', ['todos']);
-}
+var db = mongojs(config.url, ['todos']);
+
 
 // GET /todos
 router.get('/todos', function(req, res, next) {
