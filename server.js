@@ -3,11 +3,6 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var cors = require('cors')
 
-// var mongodb = require("mongodb");
-// var ObjectID = mongodb.ObjectID;
-
-// var TODOS_COLLECTION = "todos";
-
 var index = require('./routes/index');
 var todos = require('./routes/todos');
 
@@ -38,8 +33,8 @@ app.use('/api', todos);
 
 
 
-// Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
+// server
+var port = 3000;
+app.listen(port, function() {
+    console.log('Server started on port ' + port);
+});

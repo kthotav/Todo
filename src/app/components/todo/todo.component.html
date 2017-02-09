@@ -1,0 +1,29 @@
+<body>
+    <div class="container">
+
+      <h1>Todo</h1>
+
+      <div class="jumbotron">
+        <div class="container">
+          <form (submit)="addTodo($event)">
+            <div class="form-group row">
+              <div class="col-10">
+                <input class="form-control" [(ngModel)]="title" name="title" #titleValue type="text" placeholder="enter item" id="example-text-input">
+              </div>
+              <button type="submit" class="btn btn-primary col-2">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <ul class="list-group">
+        <div class="row" *ngFor="let todo of todos">
+          <div class="col-10" >
+            <li class="list-group-item">{{ todo.title }}</li>
+          </div>
+          <button type="button" class="btn btn-danger col-2">Delete</button>
+        </div>
+      </ul>
+
+      
+    </div> <!-- /container -->
